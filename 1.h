@@ -6,6 +6,17 @@ typedef struct
     char VA[10];        
 }aPDU_POWER, *paPDU_POWER;
 
+#define PDUCB_CLI_RCPTNUM_CMD "sysinfo count receptacle"
+#define PDUCB_CLI_RCPTSTATE_CMD "receptaclestate"
+#define PDUCB_CLI_PWRCONSUMP_CMD "power"
+#define PDUCB_CLI_NETWORKCONFIG_CMD "network"
+#define PDUCB_CLI_NETWORKCONFIG_IPV4_CMD "network ipv4"
+#define PDUCB_CLI_IPV6PREFIXCONFIG_CMD "network ipv6 prefix"
+#define PDUCB_CLI_DNSCONFIG_CMD "network dns"
+#define PDUCB_CLI_MAC_CMD "network mac"
+#define PDUCB_CLI_USERACCOUNT_CMD "user"
+
+
 #define PDUCB_MAX_ARRAYSIZE 4
 #define PDUCB_MAX_BRANCHSIZE 7
 #define PDUCB_MAX_RCPTSIZE 18
@@ -17,6 +28,7 @@ typedef struct
 
 #define PDUCB_CLI_ADMINCMD_ERROR_STR "Error"
 #define PDUCB_CLI_ADMINCMD_NOSUPPORT_STR "No Support"
+#define PDUCB_CLI_ADMINCMD_ABSENT_STR "Absent"
 #define PDUCB_CLI_CTRL_CHAR_STX 0x02
 #define PDUCB_CLI_CTRL_CHAR_ETX 0x03
 #define PDUCB_CLI_CTRL_CHAR_RS 0x1E
