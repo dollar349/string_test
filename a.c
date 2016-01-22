@@ -53,12 +53,6 @@ void prepare_string(char *your_str_tmp)
     strcat(p8ptr, a8tmp);
 }						
 									
-typedef struct  
-{
-    UINT8 receptacle:8;
-    UINT8 branch:4;
-    UINT8 pdu:3;
-} *pPDU_P2_Format;
 
 
 typedef struct _PDU_DATA_PACKAGE
@@ -68,6 +62,13 @@ typedef struct _PDU_DATA_PACKAGE
     UINT8 au8Buffer[];
 } *pPDU_DATA_PACKAGE;
 
+
+typedef struct  
+{
+    UINT8 receptacle:8;
+    UINT8 branch:4;
+    UINT8 pdu:3;
+} *pPDU_P2_Format;
 
 #define CLISETRCPTSTATE_BUFFER 1000
 
@@ -306,7 +307,7 @@ void get_total_power()
     }   
   
 }
-
+#if 0
 int main ()
 {
   //receptaclestate();
@@ -316,7 +317,7 @@ int main ()
   
   return 0;
 }
-
+#endif
 
 #define CLI_ADMIN_KEY_MAXIMUM 30 
 RAWSTATUS PDUCLI_AdminGetValueByKey(const char* string_data, const char* key, char* value, UINT16 value_buff_size)
@@ -372,20 +373,16 @@ RAWSTATUS PDUCLI_AdminGetValueByKey(const char* string_data, const char* key, ch
     return RAW_OK;
 }
 
-#if 0
+
+
+
 int main ()
 {
-  char str[] ="[1.A]---(1) {Off : Normal : Unlocked : Critical}";
-  char * pch;
-  printf ("Splitting string \"%s\" into tokens:\n",str);
-  pch = strstr(str, "{");
-  pch = strtok (pch,"{ :");
-//  printf ("%s\n",pch);
-  while (pch != NULL)
-  {
-    printf ("%s\n",pch);
-    pch = strtok (NULL, "{} :");
-  }
+  int AAA=0;
+  pPDU_P2_Format PPP = &AAA;
+  PPP->receptacle = 7;
+  PPP->pdu = 2;
+  PPP->branch = 1;
+  printf ("0x%02x\n", AAA);
   return 0;
 }
-#endif
