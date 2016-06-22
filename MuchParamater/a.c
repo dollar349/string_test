@@ -10,11 +10,14 @@ typedef enum {
 
 int Myfunc(int first, const char *userName, ...)
 {
+	int list_size;
     COOLERAPI_BLOCK_STATUS_e block_st;
     va_list ap;
 	va_start(ap, userName);
+	list_size = sizeof(ap); 
+	printf("list_size = %d\n", list_size);
     block_st = va_arg(ap,COOLERAPI_BLOCK_STATUS_e);
-
+	va_end(ap);
 	if (block_st == ACTION_NONBLOCK)
 	{printf("*******Nonblock work *****\n");}
     else
@@ -31,6 +34,7 @@ int main()
 {
     int a=10;
    // int b=7;
+    int arr[10]={10,20,30};
     int res;
     res = Myfunc(a,"hello");
     printf("Res = %d\n", res);
