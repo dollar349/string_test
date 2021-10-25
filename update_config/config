@@ -1,0 +1,6 @@
+baud = 9600
+socket-id = ttyUSB0
+ACI-websocket-port = 8888
+ACI-SOW_ID = 0
+ACI-PAM_Config_file_name = serialterminal
+Databits = 6
